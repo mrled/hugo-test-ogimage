@@ -1,21 +1,13 @@
 {{/* Inspired by https://github.com/gohugoio/gohugoioTheme/blob/master/layouts/partials/opengraph/get-featured-image.html#L4 */}}
 {{ $result := "" }}
 {{ $template := resources.Get "/img/equation_ogimage_template.png" }}
-{{ $dateOptions := dict
-  "color" "#FFF"
-  "size" 40
-  "lineSpacing" 10
-  "x" 65 "y" 70
-}}
 {{ $titleOptions := dict
     "color" "#FFF"
     "size" 80
     "lineSpacing" 10
     "x" 65 "y" 170
 }}
-{{ $dateStr := "" }}
 {{ $titleStr := "NOTITLE" }}
-{{ with $.Date }}{{ $dateStr = time.Format "2006-01-02" . }}{{ end }}
 {{ if $.LinkTitle }}
   {{ $titleStr = $.LinkTitle }}
 {{ else if $.Title }}
@@ -23,5 +15,5 @@
 {{ else if .Site.Title }}
   {{ $titleStr = .Site.Title }}
 {{ end }}
-{{ $result := $template | images.Filter (slice (images.Text $dateStr $dateOptions) (images.Text $titleStr $titleOptions)) }}
+{{ $result := $template | images.Filter (slice (images.Text $titleStr $titleOptions)) }}
 {{ return $result }}
