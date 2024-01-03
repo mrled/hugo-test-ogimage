@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eu
-emptyimgs=$(find public/img -type f -size 0)
+emptyimgs=$(find public/ogimage -type f -size 0)
 if test -n "$emptyimgs"; then
     echo "ERROR: empty images found"
     echo "$emptyimgs"
