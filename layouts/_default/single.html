@@ -1,0 +1,9 @@
+{{- define "title" }}
+  {{ if not .Params.NoTitleH1 }}<h1>{{ .Title }}</h1>{{ end }}
+{{- end }}
+
+{{- define "main" }}
+  <div class="entry-content">
+    {{ .Content }}
+  </div>
+{{- end }}
